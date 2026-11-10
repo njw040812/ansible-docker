@@ -10,6 +10,19 @@ It is an [Ansible](http://www.ansible.com/home) role to:
 - Configure the Docker daemon's options and environment variables
 - Configure a cron job to run Docker clean up commands
 
+## Fork additions
+
+This fork (`njw040812`) adds an opinionated example for cloud servers:
+
+- [`examples/site.yml`](examples/site.yml): playbook using this role
+- [`examples/group_vars/docker_hosts.yml`](examples/group_vars/docker_hosts.yml):
+  `json-file` log rotation, `live-restore`, weekly image cleanup
+- [`examples/verify-docker-host.sh`](examples/verify-docker-host.sh): post-deploy
+  checks for daemon config, logging driver and cron
+
+See [`examples/README.md`](examples/README.md). Upstream:
+https://github.com/nickjj/ansible-docker (MIT).
+
 ## ❔ Why would you want to use this role?
 
 If you're like me, you probably love Docker. This role provides everything you

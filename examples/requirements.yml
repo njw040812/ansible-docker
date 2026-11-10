@@ -1,0 +1,4 @@
+---
+- src: "https://github.com/njw040812/ansible-docker"
+  name: "ansible-docker"
+  version: "master"

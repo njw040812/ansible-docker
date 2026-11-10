@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased (fork)
+
+- Add `examples/` playbook for cloud servers: log rotation, live-restore,
+  weekly image cleanup and a post-deploy verification script
+- Document the fork additions in the README
+
 ## v2.5.3
 
 *Released: December 4th 2025*

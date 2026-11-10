@@ -1,0 +1,24 @@
+---
+# Users allowed to run docker without sudo.
+docker__users:
+  - "deploy"
+
+# json-file keeps logs on disk; max-size/max-file prevent the disk from filling.
+docker__default_daemon_json: |
+  "log-driver": "json-file",
+  "log-opts": {
+    "max-size": "100m",
+    "max-file": "3"
+  },
+  "live-restore": true,
+  "features": {
+    "buildkit": true
+  }
+
+# Keep only the last 7 days of unused images; adjust the filter if needed.
+docker__cron_jobs:
+  - name: "Docker image cleanup"
+    job: "docker image prune -af --filter 'until=168h' > /dev/null 2>&1"
+    schedule: ["0", "3", "*", "*", "0"]
+    cron_file: "docker-image-cleanup"
+    user: "root"
